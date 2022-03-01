@@ -27,6 +27,8 @@ class MovieCell: UICollectionViewCell {
         movieTitleLabel.text = movie.title
         descriptionLabel.text = movie.overview
         descriptionLabel.numberOfLines = 4
+        guard let posterPath = movie.posterPath else { return }
+        avatarImageView.downloadImage(from: "https://www.themoviedb.org/t/p/w220_and_h330_face" + posterPath)
     }
     
     private func configure() {
