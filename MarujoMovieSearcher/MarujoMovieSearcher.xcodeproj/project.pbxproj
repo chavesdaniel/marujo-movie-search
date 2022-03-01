@@ -20,6 +20,7 @@
 		65BFC25227CE893800D5E99A /* MSTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC24C27CE893800D5E99A /* MSTitleLabel.swift */; };
 		65BFC25327CE893800D5E99A /* MSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC24D27CE893800D5E99A /* MSAvatarImageView.swift */; };
 		65BFC25527CE893800D5E99A /* MSBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC24F27CE893800D5E99A /* MSBodyLabel.swift */; };
+		65BFC25827CE8A6500D5E99A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC25727CE8A6500D5E99A /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		65BFC24C27CE893800D5E99A /* MSTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSTitleLabel.swift; sourceTree = "<group>"; };
 		65BFC24D27CE893800D5E99A /* MSAvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSAvatarImageView.swift; sourceTree = "<group>"; };
 		65BFC24F27CE893800D5E99A /* MSBodyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBodyLabel.swift; sourceTree = "<group>"; };
+		65BFC25727CE8A6500D5E99A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		65BFC22927CE7BCF00D5E99A /* MarujoMovieSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				65BFC25627CE8A5400D5E99A /* Extensions */,
 				65BFC24727CE889700D5E99A /* Model */,
 				65BFC24427CE885F00D5E99A /* Managers */,
 				65BFC24127CE881900D5E99A /* Utilities */,
@@ -118,6 +121,14 @@
 				65BFC24827CE88AB00D5E99A /* Results.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		65BFC25627CE8A5400D5E99A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				65BFC25727CE8A6500D5E99A /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 			files = (
 				65BFC24927CE88AB00D5E99A /* Results.swift in Sources */,
 				65BFC25027CE893800D5E99A /* MSAlertVC.swift in Sources */,
+				65BFC25827CE8A6500D5E99A /* UIViewController+Ext.swift in Sources */,
 				65BFC25127CE893800D5E99A /* MSButton.swift in Sources */,
 				65BFC24327CE883000D5E99A /* ErrorMessage.swift in Sources */,
 				65BFC22B27CE7BCF00D5E99A /* AppDelegate.swift in Sources */,
