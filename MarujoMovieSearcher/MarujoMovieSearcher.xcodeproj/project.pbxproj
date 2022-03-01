@@ -54,6 +54,7 @@
 		65BFC22927CE7BCF00D5E99A /* MarujoMovieSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				65BFC24027CE7DD000D5E99A /* Custom Views */,
 				65BFC22A27CE7BCF00D5E99A /* AppDelegate.swift */,
 				65BFC22C27CE7BCF00D5E99A /* SceneDelegate.swift */,
 				65BFC23327CE7BD200D5E99A /* Assets.xcassets */,
@@ -62,6 +63,13 @@
 				65BFC23E27CE7CC600D5E99A /* MovieListVC.swift */,
 			);
 			path = MarujoMovieSearcher;
+			sourceTree = "<group>";
+		};
+		65BFC24027CE7DD000D5E99A /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
