@@ -21,6 +21,8 @@
 		65BFC25327CE893800D5E99A /* MSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC24D27CE893800D5E99A /* MSAvatarImageView.swift */; };
 		65BFC25527CE893800D5E99A /* MSBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC24F27CE893800D5E99A /* MSBodyLabel.swift */; };
 		65BFC25827CE8A6500D5E99A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC25727CE8A6500D5E99A /* UIViewController+Ext.swift */; };
+		65BFC25B27CE8BC400D5E99A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC25A27CE8BC400D5E99A /* MovieCell.swift */; };
+		65BFC25D27CE96B500D5E99A /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFC25C27CE96B500D5E99A /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		65BFC24D27CE893800D5E99A /* MSAvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSAvatarImageView.swift; sourceTree = "<group>"; };
 		65BFC24F27CE893800D5E99A /* MSBodyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBodyLabel.swift; sourceTree = "<group>"; };
 		65BFC25727CE8A6500D5E99A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		65BFC25A27CE8BC400D5E99A /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		65BFC25C27CE96B500D5E99A /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 		65BFC24027CE7DD000D5E99A /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				65BFC25927CE8BB600D5E99A /* Cells */,
 				65BFC24A27CE893800D5E99A /* MSAlertVC.swift */,
 				65BFC24D27CE893800D5E99A /* MSAvatarImageView.swift */,
 				65BFC24F27CE893800D5E99A /* MSBodyLabel.swift */,
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				65BFC24227CE883000D5E99A /* ErrorMessage.swift */,
+				65BFC25C27CE96B500D5E99A /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -129,6 +135,14 @@
 				65BFC25727CE8A6500D5E99A /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		65BFC25927CE8BB600D5E99A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				65BFC25A27CE8BC400D5E99A /* MovieCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +227,8 @@
 				65BFC25227CE893800D5E99A /* MSTitleLabel.swift in Sources */,
 				65BFC22D27CE7BCF00D5E99A /* SceneDelegate.swift in Sources */,
 				65BFC23F27CE7CC600D5E99A /* MovieListVC.swift in Sources */,
+				65BFC25B27CE8BC400D5E99A /* MovieCell.swift in Sources */,
+				65BFC25D27CE96B500D5E99A /* UIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4SDK7XJD7U;
@@ -369,7 +386,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -378,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4SDK7XJD7U;
@@ -396,7 +414,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -9,7 +9,7 @@ import UIKit
 
 class MSAvatarImageView: UIImageView {
     
-    let placeholderImage = UIImage(named: "avatar-placeholder")!
+    let placeholderImage = UIImage(named: "movie-placeholder")!
 
     override init(frame: CGRect) {
         super.init(frame: frame)

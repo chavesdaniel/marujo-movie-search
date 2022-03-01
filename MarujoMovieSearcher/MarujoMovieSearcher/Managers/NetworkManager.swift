@@ -15,7 +15,7 @@ class NetworkManager {
     
     private init() {}
     
-    func getPopularMovies(for username: String, page: Int, completed: @escaping (Result<[Movie], MSError>) -> Void ) {
+    func getPopularMovies(page: Int, completed: @escaping (Result<[Movie], MSError>) -> Void ) {
         let endpoint = baseUrl + "api_key=\(apiKey)&language=\(language)&page=\(page)"
         
         guard let url = URL(string: endpoint) else {
