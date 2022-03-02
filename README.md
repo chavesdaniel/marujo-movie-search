@@ -5,6 +5,8 @@ Este pequeno projeto faz uso da API https://developers.themoviedb.org/3/movies/g
 
 Detalhes:
  - NO Storyboard
+ - Xcode 13.2.1
+ - Swift 5
  - Conexão usando URLSession.shared.dataTask
  - Listagem usando UICollectionViewDiffableDataSource com duas colunas (UICollectionViewFlowLayout) para uma visualização mais rápida dos filmes
  - Cache das imagens (NSCache)
