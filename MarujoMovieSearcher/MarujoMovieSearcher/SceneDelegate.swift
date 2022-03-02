@@ -17,7 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
               
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = MovieListVC()
+        
+        let movieListVC            = MovieListVC()
+        movieListVC.title          = "Marujo Movie Searcher"
+        
+        window?.rootViewController = UINavigationController(rootViewController: movieListVC)
         window?.makeKeyAndVisible()
     }
 

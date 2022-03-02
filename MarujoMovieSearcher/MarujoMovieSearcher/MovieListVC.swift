@@ -13,6 +13,9 @@ class MovieListVC: UIViewController {
 
     var username: String!
     var movies: [Movie] = []
+    var filteredMovies: [Movie] = []
+    var page = 1
+    var hasMoreMovies = true
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Movie>!
@@ -20,8 +23,9 @@ class MovieListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureSearchController()
         configureCollectionView()
-        getPopularMovies()
+        getPopularMovies(page: page)
         configureDataSource()
     }
     
@@ -31,28 +35,42 @@ class MovieListVC: UIViewController {
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createTwoColumnFlowLayout(in: view))
+        collectionView.delegate = self
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.reuseID)
     }
     
-    func getPopularMovies() {
-        NetworkManager.shared.getPopularMovies(page: 1) { [weak self] result in
+    func configureSearchController() {
+        let searchController                    = UISearchController()
+        searchController.searchResultsUpdater   = self
+        searchController.searchBar.delegate     = self
+        searchController.searchBar.placeholder  = "Procure um filme"
+        navigationItem.searchController         = searchController
+    }
+    
+    func getPopularMovies(page: Int) {
+        showLoadingView()
+        NetworkManager.shared.getPopularMovies(page: page) { [weak self] result in
             
             guard let self = self else { return }
+            
+            self.dismissLoadingView()
             
             switch result {
                 
             case .success(let movies):
-                self.movies = movies
-                self.updateData()
+                if movies.count < 20 { self.hasMoreMovies = false }
+                self.movies.append(contentsOf: movies)
+                self.updateData(on: self.movies)
                 
             case .failure(let error):
-                self.presentMSAlertOnMainThread(title: "Ops...", message: error.rawValue, buttonTitle: "OK")
+                self.presentMSAlertOnMainThread(title: "Ops... Algo deu errado", message: error.rawValue, buttonTitle: "OK")
             }
             
         }
@@ -66,7 +84,7 @@ class MovieListVC: UIViewController {
         })
     }
     
-    func updateData() {
+    func updateData(on movies: [Movie]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Movie>()
         snapshot.appendSections([.main])
         snapshot.appendItems(movies)
@@ -74,4 +92,32 @@ class MovieListVC: UIViewController {
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
     }
 
+}
+
+extension MovieListVC: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY         = scrollView.contentOffset.y
+        let contentHeight   = scrollView.contentSize.height
+        let height          = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard hasMoreMovies else { return }
+            page += 1
+            getPopularMovies(page: page)
+        }
+    }
+}
+
+extension MovieListVC: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        
+        filteredMovies = movies.filter { $0.title.lowercased().contains(filter.lowercased()) }
+        updateData(on: filteredMovies)
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(on: movies)
+    }
 }

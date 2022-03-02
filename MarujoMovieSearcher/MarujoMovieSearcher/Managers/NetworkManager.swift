@@ -5,13 +5,14 @@
 //  Created by Daniel on 01/03/22.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     static let shared   = NetworkManager()
-    let baseUrl         = "https://api.themoviedb.org/3/movie/popular?"
-    let apiKey          = "172b07b1d15e15c822af3a984089e61f"
+    private let baseUrl = "https://api.themoviedb.org/3/movie/popular?"
+    private let apiKey  = "172b07b1d15e15c822af3a984089e61f"
     let language        = "pt-BR"
+    let cache           = NSCache<NSString, UIImage>()
     
     private init() {}
     

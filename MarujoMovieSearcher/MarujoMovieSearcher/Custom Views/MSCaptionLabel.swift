@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MSBodyLabel: UILabel {
+class MSCaptionLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

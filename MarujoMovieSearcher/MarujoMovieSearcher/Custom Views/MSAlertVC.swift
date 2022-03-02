@@ -11,7 +11,7 @@ class MSAlertVC: UIViewController {
 
     let containerView       = UIView()
     let titleLabel          = MSTitleLabel(textAlignment: .center, fontSize: 20)
-    let messageLabel        = MSBodyLabel(textAlignment: .center)
+    let messageLabel        = MSCaptionLabel(textAlignment: .center)
     let actionButton        = MSButton(backgroundColor: .systemPink, title: "OK")
     
     var alertTitle: String?

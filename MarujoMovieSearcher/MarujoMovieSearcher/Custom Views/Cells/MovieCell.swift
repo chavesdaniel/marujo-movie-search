@@ -10,9 +10,9 @@ import UIKit
 class MovieCell: UICollectionViewCell {
     static let reuseID      = "MovieCell"
     
-    let avatarImageView     = MSAvatarImageView(frame: .zero)
+    let avatarImageView     = MSPosterImageView(frame: .zero)
     let movieTitleLabel     = MSTitleLabel(textAlignment: .center, fontSize: 16)
-    let descriptionLabel    = MSBodyLabel(textAlignment: .center)
+    let descriptionLabel    = MSCaptionLabel(textAlignment: .center)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
