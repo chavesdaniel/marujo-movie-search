@@ -13,8 +13,9 @@ struct Results: Codable {
 }
 
 struct Movie: Codable, Hashable {
-    var id: Int
-    var title: String
-    var overview: String
+    let id: Int
+    let title: String
+    let overview: String
+    let releaseDate: String
     var posterPath: String?
 }

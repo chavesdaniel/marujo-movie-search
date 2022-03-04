@@ -16,6 +16,7 @@ class MovieListVC: UIViewController {
     var filteredMovies: [Movie] = []
     var page = 1
     var hasMoreMovies = true
+    var isSearching = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Movie>!
@@ -106,18 +107,31 @@ extension MovieListVC: UICollectionViewDelegate {
             getPopularMovies(page: page)
         }
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let activeArray     = isSearching ? filteredMovies : movies
+//        let movie           = activeArray[indexPath.item]
+//
+//        let destVC          = MovieInfoVC()
+//        destVC.movie        = movie
+//        let navController   = UINavigationController(rootViewController: destVC)
+//        present(navController, animated: true)
+//    }
 }
 
 extension MovieListVC: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
         
+        isSearching = true
+        
         filteredMovies = movies.filter { $0.title.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredMovies)
         
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        updateData(on: movies)
-    }
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        isSearching = false
+//        updateData(on: movies)
+//    }
 }

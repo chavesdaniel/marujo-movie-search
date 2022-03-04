@@ -1,5 +1,5 @@
 //
-//  ErrorMessage.swift
+//  MSError.swift
 //  MarujoMovieSearcher
 //
 //  Created by Daniel on 01/03/22.
